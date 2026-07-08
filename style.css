@@ -1,1 +1,302 @@
-body{font-family:Arial;margin:0;background:#111;color:#fff}header{display:flex;justify-content:space-between;padding:20px;background:#000}.hero{text-align:center;padding:80px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;padding:20px}.card{background:#222;padding:40px;border-radius:10px;text-align:center}button{padding:10px 20px}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(15,23,42,.85);
+    backdrop-filter:blur(12px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+.logo i{
+    margin-right:8px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin:0 15px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+.icons i{
+    margin-left:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.icons i:hover{
+    color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:120px 8%;
+    gap:50px;
+}
+
+.hero-text{
+    max-width:550px;
+}
+
+.hero-text h1{
+    font-size:60px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    margin-bottom:30px;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#38bdf8;
+    color:#fff;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(56,189,248,.35);
+}
+
+.hero-image img{
+    width:450px;
+    border-radius:30px;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+/* SECTION */
+
+section{
+    padding:90px 8%;
+}
+
+section h2{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+/* CATEGORIES */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:#38bdf8;
+}
+
+.card i{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+/* PRODUCTS */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.product{
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+    text-align:center;
+    transition:.4s;
+}
+
+.product:hover{
+    transform:translateY(-10px);
+}
+
+.product img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.product h3{
+    margin:20px 0 10px;
+}
+
+.product p{
+    color:#38bdf8;
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.product button{
+    margin-bottom:25px;
+    padding:12px 28px;
+    border:none;
+    background:#38bdf8;
+    color:#fff;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+/* OFFER */
+
+.offer{
+    text-align:center;
+    background:linear-gradient(135deg,#0ea5e9,#2563eb);
+    border-radius:30px;
+    margin:60px 8%;
+}
+
+.offer p{
+    margin:20px 0 35px;
+    font-size:20px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    text-align:center;
+}
+
+.newsletter input{
+    width:350px;
+    max-width:90%;
+    padding:15px;
+    border:none;
+    border-radius:40px;
+    margin-top:20px;
+}
+
+.newsletter button{
+    padding:15px 30px;
+    border:none;
+    border-radius:40px;
+    margin-left:10px;
+    background:#38bdf8;
+    color:#fff;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#020617;
+    padding:60px 8%;
+    text-align:center;
+}
+
+footer h3{
+    margin-bottom:15px;
+}
+
+footer h4{
+    margin-top:30px;
+    margin-bottom:15px;
+}
+
+footer a{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+footer i{
+    font-size:22px;
+    margin:0 10px;
+    cursor:pointer;
+}
+
+.copy{
+    margin-top:35px;
+    color:#94a3b8;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+header{
+    padding:20px;
+}
+
+nav{
+    display:none;
+}
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:42px;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:350px;
+}
+
+.newsletter button{
+    margin-top:15px;
+    margin-left:0;
+}
+
+}
