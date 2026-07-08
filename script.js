@@ -1,191 +1,67 @@
-// =========================
-// ELECTROHUB SCRIPT.JS
-// =========================
+// 1. Custom Cursor Logic
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
 
-// Navbar shadow on scroll
-const header = document.querySelector("header");
+window.addEventListener('mousemove', (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
 
-window.addEventListener("scroll", () => {
+    // Dot strictly follows cursor
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    // Outline follows with a slight delay for smooth cinematic effect
+    cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+});
+
+// Hover effect on links and buttons
+const interactables = document.querySelectorAll('a, button, input, select');
+interactables.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        cursorOutline.style.width = '60px';
+        cursorOutline.style.height = '60px';
+        cursorOutline.style.backgroundColor = 'rgba(0, 255, 204, 0.1)';
+    });
+    item.addEventListener('mouseleave', () => {
+        cursorOutline.style.width = '40px';
+        cursorOutline.style.height = '40px';
+        cursorOutline.style.backgroundColor = 'transparent';
+    });
+});
+
+// 2. Scroll Animation (Intersection Observer)
+// Jab element screen par aayega, tabhi fade in hoga
+const faders = document.querySelectorAll('.fade-in-up');
+
+const appearOptions = {
+    threshold: 0.2, // Screen par 20% dikhne ke baad animation chalega
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        
+        entry.target.classList.add('appear');
+        appearOnScroll.unobserve(entry.target);
+    });
+}, appearOptions);
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+
+// 3. Navbar Glass Effect on Scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        header.style.background = "rgba(2,6,23,0.95)";
-        header.style.boxShadow = "0 8px 25px rgba(0,0,0,.35)";
+        navbar.style.background = 'rgba(5, 5, 5, 0.9)';
+        navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.5)';
     } else {
-        header.style.background = "rgba(15,23,42,.85)";
-        header.style.boxShadow = "none";
+        navbar.style.background = 'rgba(5, 5, 5, 0.7)';
+        navbar.style.boxShadow = 'none';
     }
 });
-
-// Smooth Scroll
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if(target){
-
-            e.preventDefault();
-
-            target.scrollIntoView({
-                behavior:"smooth"
-            });
-
-        }
-
-    });
-});
-
-// Reveal Animation
-const reveals = document.querySelectorAll("section");
-
-function revealSection(){
-
-    const trigger = window.innerHeight * 0.85;
-
-    reveals.forEach(section=>{
-
-        const top = section.getBoundingClientRect().top;
-
-        if(top < trigger){
-
-            section.style.opacity = "1";
-            section.style.transform = "translateY(0px)";
-
-        }
-
-    });
-
-}
-
-reveals.forEach(section=>{
-
-    section.style.opacity = "0";
-    section.style.transform = "translateY(60px)";
-    section.style.transition = "all .8s ease";
-
-});
-
-window.addEventListener("scroll", revealSection);
-revealSection();
-
-// Product Hover Effect
-const products = document.querySelectorAll(".product");
-
-products.forEach(card=>{
-
-    card.addEventListener("mouseenter",()=>{
-
-        card.style.transform = "translateY(-12px) scale(1.03)";
-
-    });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.transform = "translateY(0) scale(1)";
-
-    });
-
-});
-
-// Category Hover Effect
-const categories = document.querySelectorAll(".card");
-
-categories.forEach(card=>{
-
-    card.addEventListener("mouseenter",()=>{
-
-        card.style.transform="translateY(-12px) rotate(-1deg)";
-
-    });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.transform="translateY(0) rotate(0deg)";
-
-    });
-
-});
-
-// Button Ripple Effect
-document.querySelectorAll(".btn, button").forEach(btn=>{
-
-    btn.addEventListener("click",function(e){
-
-        const circle=document.createElement("span");
-
-        const size=Math.max(this.clientWidth,this.clientHeight);
-
-        circle.style.width=size+"px";
-        circle.style.height=size+"px";
-
-        circle.style.position="absolute";
-        circle.style.borderRadius="50%";
-        circle.style.background="rgba(255,255,255,.35)";
-        circle.style.transform="scale(0)";
-        circle.style.animation="ripple .6s linear";
-        circle.style.pointerEvents="none";
-
-        const rect=this.getBoundingClientRect();
-
-        circle.style.left=(e.clientX-rect.left-size/2)+"px";
-        circle.style.top=(e.clientY-rect.top-size/2)+"px";
-
-        this.appendChild(circle);
-
-        setTimeout(()=>{
-
-            circle.remove();
-
-        },600);
-
-    });
-
-});
-
-// Button Position Fix
-document.querySelectorAll(".btn, button").forEach(btn=>{
-
-    btn.style.position="relative";
-    btn.style.overflow="hidden";
-
-});
-
-// Ripple Animation
-const style=document.createElement("style");
-
-style.innerHTML=`
-@keyframes ripple{
-
-from{
-
-transform:scale(0);
-opacity:1;
-
-}
-
-to{
-
-transform:scale(4);
-opacity:0;
-
-}
-
-}
-`;
-
-document.head.appendChild(style);
-
-// Loading Animation
-window.addEventListener("load",()=>{
-
-    document.body.style.opacity="0";
-
-    setTimeout(()=>{
-
-        document.body.style.transition="opacity .8s ease";
-        document.body.style.opacity="1";
-
-    },100);
-
-});
-
-console.log("🚀 ElectroHub Loaded Successfully");
