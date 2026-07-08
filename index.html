@@ -3,221 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectroHub - Premium Electronics Store</title>
-
+    <title>Elevate Media | AI Video & Ads Agency</title>
     <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="dark-theme">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919876543210?text=Hi!%20I%20need%20AI%20Video%20and%20Ads%20Promotion%20services.%20Let's%20connect." class="floating-wa" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="glass-nav" id="navbar">
+        <div class="logo">Elevate<span>.AI</span></div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact" class="btn-primary">Get a Quote</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <!-- Replace with your actual cinematic video link -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in-up">
+            <div class="badge">Next-Gen Ads Agency</div>
+            <h1>Cinematic AI<br><span class="gradient-text">Productions.</span></h1>
+            <p>We create ultra-premium AI videos and targeted ad campaigns that dominate the market.</p>
+            <a href="#contact" class="btn-glow">Start Your Project</a>
+        </div>
+    </header>
+
+    <!-- Bento Grid Services Section -->
+    <section class="services section-padding" id="services">
+        <div class="container text-center fade-in-up">
+            <h2>Our Core <span class="gradient-text">Power</span></h2>
+            <p class="subtitle">End-to-end media dominance.</p>
+            
+            <div class="bento-grid">
+                <div class="bento-box feature-1">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>AI Video Creation</h3>
+                    <p>Weightless, luxurious, and highly detailed visual narratives generated through advanced AI pipelines.</p>
+                </div>
+                <div class="bento-box feature-2">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <h3>Ads Promotion</h3>
+                    <p>Data-driven ad campaigns across Meta, Google, and YouTube to maximize your ROI.</p>
+                </div>
+                <div class="bento-box feature-3">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <h3>Cinematic Styling</h3>
+                    <p>Moody, tailored aesthetics blending modern styling with 90s classic visual undertones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Lead Generation -->
+    <section class="contact section-padding" id="contact">
+        <div class="container fade-in-up">
+            <div class="contact-wrapper glass-panel">
+                <div class="contact-info">
+                    <h2>Let's build <br>something <span class="gradient-text">epic.</span></h2>
+                    <p>Drop us a message and we'll get back to you within 24 hours.</p>
+                    <div class="contact-methods">
+                        <p><i class="fa-solid fa-envelope"></i> hello@elevateai.com</p>
+                        <p><i class="fa-brands fa-whatsapp"></i> +91 98765 43210</p>
+                    </div>
+                </div>
+                
+                <!-- Email Form (Uses Formspree for direct emails) -->
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="contact-form">
+                    <div class="input-box">
+                        <input type="text" name="Name" required placeholder=" ">
+                        <label>Your Name</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" name="Email" required placeholder=" ">
+                        <label>Business Email</label>
+                    </div>
+                    <div class="input-box">
+                        <select name="Service" required>
+                            <option value="" disabled selected>What do you need?</option>
+                            <option value="AI Video">AI Video Production</option>
+                            <option value="Ads">Ads Promotion</option>
+                            <option value="Both">Both (Full Package)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-glow w-100">Send Request <i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Elevate AI Media. Built for dominance.</p>
+    </footer>
 
-<!-- NAVBAR -->
-
-<header>
-
-<div class="logo">
-    <i class="fa-solid fa-bolt"></i>
-    <span>ElectroHub</span>
-</div>
-
-<nav>
-
-<a href="#">Home</a>
-<a href="#">Products</a>
-<a href="#">Categories</a>
-<a href="#">Deals</a>
-<a href="#">Contact</a>
-
-</nav>
-
-<div class="icons">
-
-<i class="fa-solid fa-magnifying-glass"></i>
-<i class="fa-solid fa-heart"></i>
-<i class="fa-solid fa-cart-shopping"></i>
-
-</div>
-
-</header>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-text">
-
-<h1>Next Generation Electronics</h1>
-
-<p>
-
-Discover premium gadgets with futuristic technology
-and unbelievable prices.
-
-</p>
-
-<a href="#" class="btn">Shop Now</a>
-
-</div>
-
-<div class="hero-image">
-
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900" alt="Phone">
-
-</div>
-
-</section>
-
-<!-- CATEGORIES -->
-
-<section class="categories">
-
-<h2>Popular Categories</h2>
-
-<div class="category-grid">
-
-<div class="card">
-<i class="fa-solid fa-mobile-screen-button"></i>
-<h3>Mobiles</h3>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-laptop"></i>
-<h3>Laptops</h3>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-headphones"></i>
-<h3>Audio</h3>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-gamepad"></i>
-<h3>Gaming</h3>
-</div>
-
-</div>
-
-</section>
-
-<!-- PRODUCTS -->
-
-<section class="products">
-
-<h2>Trending Products</h2>
-
-<div class="product-grid">
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500">
-
-<h3>Wireless Headphones</h3>
-
-<p>₹2,999</p>
-
-<button>Buy Now</button>
-
-</div>
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=500">
-
-<h3>Gaming Laptop</h3>
-
-<p>₹74,999</p>
-
-<button>Buy Now</button>
-
-</div>
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1511385348-a52b4a160dc2?w=500">
-
-<h3>Smart Watch</h3>
-
-<p>₹4,999</p>
-
-<button>Buy Now</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- OFFER -->
-
-<section class="offer">
-
-<h2>Limited Time Offer</h2>
-
-<p>Flat 40% OFF on Premium Electronics</p>
-
-<a href="#" class="btn">Explore Deals</a>
-
-</section>
-
-<!-- NEWSLETTER -->
-
-<section class="newsletter">
-
-<h2>Subscribe</h2>
-
-<p>Get latest deals & offers.</p>
-
-<input type="email" placeholder="Enter Email">
-
-<button>Subscribe</button>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<div>
-
-<h3>ElectroHub</h3>
-
-<p>Your trusted electronics destination.</p>
-
-</div>
-
-<div>
-
-<h4>Quick Links</h4>
-
-<a href="#">Home</a><br>
-<a href="#">Products</a><br>
-<a href="#">Contact</a>
-
-</div>
-
-<div>
-
-<h4>Follow</h4>
-
-<i class="fab fa-facebook"></i>
-<i class="fab fa-instagram"></i>
-<i class="fab fa-youtube"></i>
-
-</div>
-
-<p class="copy">
-
-© 2026 ElectroHub. All Rights Reserved.
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
